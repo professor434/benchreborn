@@ -3,10 +3,7 @@ import * as React from "react";
 
 export function Table({ children, className = "", ...props }) {
   return (
-    <table
-      className={`w-full text-sm border-collapse ${className}`}
-      {...props}
-    >
+    <table className={`w-full text-sm border-collapse ${className}`} {...props}>
       {children}
     </table>
   );
@@ -30,7 +27,7 @@ export function TableHeader({ children }) {
 
 export function TableCell({ children }) {
   return (
-    <td className="border-b border-gray-200 px 2 py-3 dark:border-gray-700">
+    <td className="border-b border-gray-200 px-2 py-3 dark:border-gray-700">
       {children}
     </td>
   );
