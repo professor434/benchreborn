@@ -1,48 +1,54 @@
-
 import React, { useState } from "react";
-import { card, cardContent } from "../components/ui/card";
-import { button } from "../components/ui/button";
-import { input } from "../components/ui/input";
-import { table, tableHead, tableRow, tableHeader, tableCell, tableBody } from "../components/ui/table";
+import { Card, CardContent } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import {
+  Table,
+  TableHead,
+  TableRow,
+  TableHeader,
+  TableCell,
+  TableBody,
+} from "../components/ui/table";
 
 const mockTools = [
-  { id: 1, name: "Δράπανο Bosch GSB 13 RE", condition: "Καλή", status: "Διαθέσιμο" },
-  { id: 2, name: "Πιστόλι Θερμού Αέρα Makita", condition: "Άριστη", status: "Υπό αξιολόγηση" },
-  { id: 3, name: "Σέγα Black&Decker 500W", condition: "Χρήζει service", status: "Μη διαθέσιμο" },
+  { id: 1, name: "Αδράχνη Bosch GB 13 RE", condition: "Καλή", status: "Διαθέσιμο" },
+  { id: 2, name: "Πολύμετρο Εφορια ABΦ Κατάτα", condition: "Άριστη", status: "Υπό αξιολόγηση" },
+  { id: 3, name: "Έγγυ Black&Decker 500W", condition: "Χρήζει service", status: "Μη διαθέσιμο" },
 ];
 
 export default function BenchRebornSaaS() {
   const [tools, setTools] = useState(mockTools);
 
   return (
-    <main className="p-6 bg-[#f8f8f8] min-h-screen">
+    <main className="p-6 bg-[#f5f5f5] min-h-screen">
       <h1 className="text-3xl font-bold mb-6">BenchReborn SaaS Tool Dashboard</h1>
 
       {/* Upload from Google Sheet */}
-      <section className="mb-10">
-        <card className="p-6">
-          <cardContent>
+      <section className="mb-8">
+        <Card className="p-6">
+          <CardContent>
             <h2 className="text-xl font-semibold mb-4">Εισαγωγή από Google Sheet</h2>
-            <p className="text-sm mb-4">
-              Κάντε paste το shared URL από το Google Sheet με τα διαθέσιμα εργαλεία της επιχείρησής σας:
-            </p>
-            <input placeholder="https://docs.google.com/spreadsheets/..." className="mb-4" />
-            <button className="bg-orange-600 hover:bg-orange-700 text-white">Εισαγωγή</Button>
-          </cardContent>
-        </card>
+            <p className="text-sm mb-4">Κάντε paste το shared URL από το Google Sheet με τα διαθέσιμα εργαλεία της επιχείρησής σας:</p>
+            <input
+              placeholder="https://docs.google.com/spreadsheets/..."
+              className="w-full border rounded-md p-2 mb-4"
+            />
+            <Button>Εισαγωγή</Button>
+          </CardContent>
+        </Card>
       </section>
 
-      {/* Dashboard Preview */}
+      {/* Dashboard preview */}
       <section>
-        <h2 className="text-2xl font-semibold mb-4">Εργαλεία Επιχείρησης</h2>
+        <h2 className="text-xl font-semibold mb-4">Εργαλεία Επιχείρησης</h2>
         <Table className="bg-white shadow-md">
-          <TableHeader>
+          <TableHead>
             <TableRow>
-              <TableHead>Όνομα Εργαλείου</TableHead>
-              <TableHead>Κατάσταση</TableHead>
-              <TableHead>Διαθεσιμότητα</TableHead>
+              <TableHeader>Όνομα Εργαλείου</TableHeader>
+              <TableHeader>Κατάσταση</TableHeader>
+              <TableHeader>Διαθεσιμότητα</TableHeader>
             </TableRow>
-          </TableHeader>
+          </TableHead>
           <TableBody>
             {tools.map((tool) => (
               <TableRow key={tool.id}>
