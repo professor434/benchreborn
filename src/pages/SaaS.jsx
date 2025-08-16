@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Card, CardContent } from "../components/ui/card";
+import { Card, CardContent } from "../components/ui/Card";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Table, TableHead, TableRow, TableHeader, TableCell, TableBody } from "../components/ui/table";
