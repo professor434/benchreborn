@@ -20,16 +20,16 @@ export default function BenchRebornSaaS() {
 
       {/* Upload from Google Sheet */}
       <section className="mb-10">
-        <Card className="p-6">
-          <CardContent>
+        <card className="p-6">
+          <cardContent>
             <h2 className="text-xl font-semibold mb-4">Εισαγωγή από Google Sheet</h2>
             <p className="text-sm mb-4">
               Κάντε paste το shared URL από το Google Sheet με τα διαθέσιμα εργαλεία της επιχείρησής σας:
             </p>
-            <Input placeholder="https://docs.google.com/spreadsheets/..." className="mb-4" />
-            <Button className="bg-orange-600 hover:bg-orange-700 text-white">Εισαγωγή</Button>
-          </CardContent>
-        </Card>
+            <input placeholder="https://docs.google.com/spreadsheets/..." className="mb-4" />
+            <button className="bg-orange-600 hover:bg-orange-700 text-white">Εισαγωγή</Button>
+          </cardContent>
+        </card>
       </section>
 
       {/* Dashboard Preview */}
