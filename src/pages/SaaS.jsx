@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
-import { Card, CardContent } from "../components/ui/Card";
-import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
-import { Table, TableHead, TableRow, TableHeader, TableCell, TableBody } from "../components/ui/table";
+import { card, CardContent } from "../components/ui/card";
+import { button } from "../components/ui/button";
+import { input } from "../components/ui/input";
+import { table, tableHead, tableRow, tableHeader, tableCell, tableBody } from "../components/ui/table";
 
 const mockTools = [
   { id: 1, name: "Δράπανο Bosch GSB 13 RE", condition: "Καλή", status: "Διαθέσιμο" },
