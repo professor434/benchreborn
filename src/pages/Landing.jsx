@@ -12,48 +12,37 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="text-center py-16 px-4">
-        <h2 className="text-5xl font-bold tracking-tight mb-4">Tools Reborn. Business Reforged.</h2>
-        <p className="text-xl mb-8">Δώσε ξανά ζωή στα επαγγελματικά εργαλεία</p>
+        <h2 className="text-3xl font-bold tracking-tight mb-4">
+          Το Πρώτο Reborn. Business Reborn.
+        </h2>
+        <p className="text-xl mb-8">
+          Ξαναδίνουμε ζωή και αξία στον επαγγελματικό εξοπλισμό που μένει στα ράφια.
+        </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <button className="bg-orange-600 hover:bg-orange-700 text-white text-lg px-6 py-3 rounded-md">Δήλωσε Εργαλεία</button>
-          <button className="border border-gray-900 dark:border-gray-200 text-lg px-6 py-3 rounded-md">Νοίκιασε Τώρα</button>
+          <a
+            href="/saas"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-semibold"
+          >
+            Go to SaaS Dashboard
+          </a>
         </div>
       </section>
 
-      {/* Available Tools */}
+      {/* Available Tools mock */}
       <section className="py-12 px-6 max-w-5xl mx-auto">
-        <h3 className="text-3xl font-bold mb-6">Διαθέσιμα Εργαλεία</h3>
+        <h3 className="text-2xl font-semibold mb-4">Δημοφιλή Εργαλεία</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="card">
+            <div key={i} className="border rounded-md p-4">
               <img
                 src={`/tools/tool${i + 1}.png`}
                 alt={`Tool ${i + 1}`}
-                className="w-full h-40 object-contain mb-4"
+                className="w-full object-contain h-40 mb-2"
               />
-              <h4 className="text-xl font-semibold">Εργαλείο {i + 1}</h4>
-              <p className="text-sm opacity-80">Μεταχειρισμένο – Πιστοποιημένο – Έτοιμο για χρήση</p>
+              <h4 className="text-lg font-semibold">Εργαλείο #{i + 1}</h4>
+              <p className="text-sm opacity-80">Mock περιγραφικό κείμενο...</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* For Companies */}
-      <section className="bg-gray-100 dark:bg-[#1d1d1d] py-12 px-6">
-        <h3 className="text-3xl font-bold text-center mb-6">Για Επιχειρήσεις</h3>
-        <p className="text-center max-w-3xl mx-auto mb-6">
-          Έχετε αχρησιμοποίητα εργαλεία που κάθονται στα ράφια; Δηλώστε τα εύκολα με τη φόρμα εισαγωγής και αφήστε μας να τα
-          αξιολογήσουμε και να τα διανείμουμε. Εσείς κερδίζετε – τα εργαλεία αναγεννιούνται.
-        </p>
-        <div className="max-w-xl mx-auto card">
-          <h4 className="text-xl font-semibold mb-4">Φόρμα Εργαλείων</h4>
-          <form className="grid gap-4">
-            <input placeholder="Επωνυμία Εταιρείας" />
-            <input placeholder="Τύπος Εργαλείου" />
-            <input placeholder="Κατάσταση / Περιγραφή" />
-            <input placeholder="Email Επικοινωνίας" type="email" />
-            <button type="submit">Υποβολή</button>
-          </form>
         </div>
       </section>
     </main>
