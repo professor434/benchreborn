@@ -18,6 +18,28 @@ const mockTools = [
 
 export default function BenchRebornSaaS() {
   const [tools, setTools] = useState(mockTools);
+  const [sheetUrl, setSheetUrl] = useState("");
+
+  // Handle Google Sheet submit
+  const handleSubmit = async () => {
+    try {
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ sheetUrl }),
+      });
+
+      if (res.ok) {
+        alert("Το Google Sheet στάλθηκε με επιτυχία!");
+        setSheetUrl("");
+      } else {
+        alert("Κάτι πήγε στραβά.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Σφάλμα κατά την αποστολή.");
+    }
+  };
 
   return (
     <main className="p-6 bg-[#f5f5f5] min-h-screen">
@@ -28,12 +50,16 @@ export default function BenchRebornSaaS() {
         <Card className="p-6">
           <CardContent>
             <h2 className="text-xl font-semibold mb-4">Εισαγωγή από Google Sheet</h2>
-            <p className="text-sm mb-4">Κάντε paste το shared URL από το Google Sheet με τα διαθέσιμα εργαλεία της επιχείρησής σας:</p>
+            <p className="text-sm mb-4">
+              Κάντε paste το shared URL από το Google Sheet με τα διαθέσιμα εργαλεία της επιχείρησής σας:
+            </p>
             <input
+              value={sheetUrl}
+              onChange={(e) => setSheetUrl(e.target.value)}
               placeholder="https://docs.google.com/spreadsheets/..."
               className="w-full border rounded-md p-2 mb-4"
             />
-            <Button>Εισαγωγή</Button>
+            <Button onClick={handleSubmit}>Εισαγωγή</Button>
           </CardContent>
         </Card>
       </section>
