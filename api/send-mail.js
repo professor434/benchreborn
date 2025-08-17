@@ -1,15 +1,13 @@
-// api/send-mail.js
-
 import sgMail from "@sendgrid/mail";
 
-export default async function handler(req, res) {
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+export default async function (req, res) {
   const { sheetUrl, name, email, message } = req.body;
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
   const content = `
-    ΝΕΑ ΥΠΟΒΟΛΗ ΑΠΟ BenchReborn:\n
-    Google Sheet URL: ${sheetUrl || "-"}
+    Νέα υποβολή:
+    Sheet URL: ${sheetUrl || "-"}
     Όνομα: ${name || "-"}
     Email: ${email || "-"}
     Μήνυμα: ${message || "-"}
@@ -19,12 +17,13 @@ export default async function handler(req, res) {
     await sgMail.send({
       to: "benchreborn@gmail.com",
       from: "benchreborn@gmail.com",
-      subject: "Νέα υποβολή από τον χρήστη",
+      subject: "BenchReborn - Νέα Υποβολή",
       text: content,
     });
-    return res.status(200).json({ ok: true });
-  } catch (error) {
-    console.error("SendGrid Error:", error);
-    return res.status(500).json({ ok: false });
+
+    res.status(200).json({ ok: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ ok: false });
   }
 }
