@@ -6,9 +6,12 @@ export default function LandingPage() {
     <main className="min-h-screen bg-white dark:bg-[#121212] text-[#1a1a1a] dark:text-gray-100">
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4">
-        <h1 className="text-2xl font-bold">BenchReborn</h1>
-        <ThemeToggle />
-      </header>
+  <div className="flex items-center gap-2">
+    <img src="/logo.png" alt="BenchReborn Logo" className="h-8" />
+    <span className="text-2xl font-bold">BenchReborn</span>
+  </div>
+  <ThemeToggle />
+</header>
 
       {/* Hero Section */}
       <section className="text-center py-16 px-4">
